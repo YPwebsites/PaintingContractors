@@ -1,4 +1,9 @@
-/*YP Horizontal Framework B v2.1 - 4/4/2013
+/*
+Painting Contractors (05/10/2013)
+Design by Anna Lee, Development by Conor Kelly
+ck7630@yp.com
+
+YP Horizontal Framework B v2.1 - 4/4/2013
 fixed calculators and typography 
 MODULE STYLING added 4/4/2013
 Updated mobile menu 4/5/2013
@@ -32,8 +37,7 @@ body {
 		
 .skinBg { 
 	background-position: center top;
-	
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#32000000',GradientType=0 ); /* IE6-8 */
+
 	background-image: url("gfx/navBG.jpg");
 	background-image: linear-gradient(to bottom, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.2) 100%), url("gfx/navBG.jpg"); /* W3C */
 	background-image: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.2) 100%), url("gfx/navBG.jpg"); /* FF3.6+ */
@@ -286,18 +290,18 @@ p.m-logo {
 }
 #wrapper-menu {
 	display:inline-block;
-	z-index:400;
+	z-index:997;
 }
 #wrapper-header { }
 #wrapper-content { } 
 div#wrapper-content { }
 #wrapper-footer {
-	background: transparent url(gfx/footerAreaBG.jpg) repeat top left scroll;
+	background: transparent url('gfx/footerAreaBG.jpg') repeat top left scroll;
 	padding: 10px 0px;
 } 
 #wrapper-copyright {
 	display:inline-block;
-	background: transparent url(gfx/copywriteBG.jpg) repeat top left scroll;
+	background: transparent url('gfx/copywriteBG.jpg') repeat top left scroll;
 	padding: 10px 0px;
 }
 #header { }
@@ -349,7 +353,7 @@ div.slogan, div.slogan div {
 	bottom:29px;
 	z-index:200;
 	background-color:rgba(20,42,50,.5);
-	background-image:url(gfx/CTAbg2.png)\9;
+	background-image:url('gfx/CTAbg2.png')\9;
 }
 /* font styling goes here */
 #phone-number div, 
@@ -381,7 +385,7 @@ div.slogan, div.slogan div {
 #m-phone-number:hover,
 #m-phone-number:active {
 	cursor:pointer;
-	background: transparent url(gfx/navLiCurrentBg.jpg) repeat top left scroll;
+	background: transparent url('gfx/navLiCurrentBg.jpg') repeat top left scroll;
 }
 #m-phone-number div,
 #m-phone-number a div {
@@ -396,7 +400,7 @@ div.slogan, div.slogan div {
 
 /* header image */
 /* WP wraps #siteMainDynHeaderImage1 with #header-image-wrapper-1 by defult but removes it once the image is replaced; this may change in the future */
-#header-image-wrapper-1 {
+#header-image-wrap {
 	margin-top: 0px; 
 	margin-bottom: 10px; 
 	position:relative;
@@ -413,8 +417,8 @@ img#siteMainDynHeaderImage1 {
 /* Header media queries */
 /* Smaller than standard 960 (devices and browsers) */
 @media only screen and (max-width: 959px) {
-	#header-image-wrapper-1 {
-		background-image:url(gfx/headerShadow768.png);
+	#header-image-wrap {
+		background-image:url('gfx/headerShadow768.png');
 		padding-bottom: 22px;
 	}
 	#phone-number {
@@ -437,8 +441,8 @@ img#siteMainDynHeaderImage1 {
 	#m-phone-number {
 		display:block;
 	}	
-	#header-image-wrapper-1 {
-		background-image: url(gfx/headerShadow420.png);	
+	#header-image-wrap {
+		background-image: url('gfx/headerShadow420.png');	
 		padding-bottom: 12px;
 	}
 	.page-title {
@@ -451,8 +455,8 @@ img#siteMainDynHeaderImage1 {
 		max-width:300px;
 		height:auto;		
 	}	
-	#header-image-wrapper-1 {
-		background-image:url(gfx/headerShadow300.png);
+	#header-image-wrap {
+		background-image:url('gfx/headerShadow300.png');
 		padding-bottom: 9px;
 	}
 }	
@@ -467,12 +471,14 @@ img#siteMainDynHeaderImage1 {
 /* Feel free to change up this area as you see fit in order to best suit your design. */
 #menu {
 	position:relative;
-	z-index:400;
+	z-index:998;
 }
 ul#nav {
 	margin: 0;
 	padding: 0;
 	width:auto;
+	position: relative;
+	z-index: 999;
 	}
 /* start first level nav items */
 	ul#nav li {
@@ -485,6 +491,7 @@ ul#nav {
 		border-right: 1px solid #18586b;
 		border-left: 1px solid #ffffff;
 		border-bottom: 1px solid #3c768a;
+		position: relative;
 	}
 	ul#nav li.last { }
 	ul#nav li.first { }
@@ -525,6 +532,13 @@ ul#nav {
 			left: -999em; /* using left instead of display to hide menus because display: none isnt read by screen readers */
 			margin:0px;
 			padding:0px;
+
+		}
+		ul#nav > li > ul {
+   			 margin-top: 10px;
+		}
+		ul#nav li ul li {
+			position: relative;
 		}
 		ul#nav li ul li a,
 		ul#nav li.current ul li a { /* second level dropdown buttons */
@@ -535,6 +549,7 @@ ul#nav {
 			color:#fff;
 			background: transparent url("gfx/navLiAbg.jpg") top left repeat scroll;
 			text-align: left;
+			position: relative;
 		}
 		ul#nav li ul li a:hover,
 		ul#nav li.current ul li a:hover { /* second level dropdown button hover state */	
@@ -984,7 +999,7 @@ div.unit-calc li.unit-menu ul.unit-type li a:hover {
 }
 div.widget-button:hover{
 	cursor:pointer;
-	background: transparent url(gfx/navLiCurrentBg.jpg) repeat top left scroll;
+	background: transparent url('gfx/navLiCurrentBg.jpg') repeat top left scroll;
 }
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
@@ -1151,11 +1166,15 @@ form ul {
 nav#menu ul li a.hover { }
 /* footer data link */
 a.websplanet {
-	color: #fff;
+	color: #11607A;
+	text-decoration: none;
+}
+a.websplanet:hover {
+	color: #B8A015;
 	text-decoration: underline;
 }
 .footerLinks {
-    float: right;
+    float: left;
     text-align: left;
 }
 .footerText {
@@ -1483,9 +1502,8 @@ div.Events_item_desc {
 #FAQ_category_list > li > a:hover,
 #FAQ_category_list > li > a:active {
 	cursor:pointer;
-	box-shadow: 0 0 10px #000000 inset;
-	-webkit-box-shadow: 0 0 10px #000000 inset;
-	background: transparent url(gfx/navLiCurrentBg.jpg) repeat top left scroll;
+
+	background: transparent url('gfx/navLiCurrentBg.jpg') repeat top left scroll;
     filter: progid:DXImageTransform.Microsoft.gradient( enabled=false );
 }
 ul#FAQ_category_list span {
@@ -1501,11 +1519,15 @@ div#jobs-module ul {
 .jobs-title,
 .jobs-title:hover {
     background: none;
+    filter: none;
     border: none;
 	font-family: Verdana,arial,sans-serif; /* replace with theme fonts */
 	font-size: 24px;
 	padding-left: 0px;
 	color: #11607A; /* replace with theme color */
+}
+#jobs-module li .jobs-title a {
+	color: #11607A;
 }
 .jobs-title a:hover,
 .jobs-title a:focus,
@@ -1529,7 +1551,7 @@ div#jobs-module ul {
 .jobs-apply a:active,
 .jobs-apply a:focus {
     cursor:pointer;
-	background: transparent url(gfx/navLiCurrentBg.jpg) repeat top left scroll;
+	background: transparent url('gfx/navLiCurrentBg.jpg') repeat top left scroll;
 	text-decoration: none;
 }
 
@@ -1541,7 +1563,14 @@ div.horizontal.callouts div.vertical div.diy-f-spot.callout2 div.diy-f-spot-inne
 	width:45% !important;
 	float:left !important;
 	margin-right: 0 !important;
+	margin-bottom: 0px !important;
 }	
+div.horizontal.callouts div.vertical div.diy-f-spot {
+	margin-bottom: 0px !important;
+}
+div.horizontal.callouts div.vertical div.diy-f-spot div.widget-wrapper.free-image {
+	margin-left: 0px !important;
+}
 div.horizontal.callouts div.vertical div.diy-f-spot div.image_wrapper {
 	border: 6px solid #fff;
 	box-shadow: 0 0 1px	#c2c2c0;
